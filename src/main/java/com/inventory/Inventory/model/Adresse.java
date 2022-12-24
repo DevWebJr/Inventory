@@ -2,17 +2,17 @@ package com.inventory.Inventory.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.io.Serializable;
 
 @EqualsAndHashCode
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Adresse {
+public class Adresse implements Serializable {
     @Column(name = "adresse_principale")
     private String adressePrincipale;
     @Column(name = "adresse_secondaire")
