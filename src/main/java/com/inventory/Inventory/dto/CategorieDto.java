@@ -16,7 +16,7 @@ public class CategorieDto {
     @JsonIgnore
     private List<ArticleDto> articles;
 
-    public CategorieDto fromEntity(Categorie categorie) {
+    public static CategorieDto getFromEntity(Categorie categorie) {
         if(categorie == null) {
             return null;
             // TODO throw an exception
@@ -28,14 +28,15 @@ public class CategorieDto {
                 .build();
     }
 
-    public Categorie toEntity(CategorieDto categorieDto) {
+    public static Categorie SetToEntity(CategorieDto categorieDto) {
         if(categorieDto == null) {
             return null;
             // TODO throw an exception
         }
-        return Categorie.builder()
-                .code(categorieDto.getCode())
-                .designation(categorieDto.getDesignation())
-                .build();
+        Categorie categorie = new Categorie();
+        categorie.setId(categorieDto.getId());
+        categorie.setCode(categorieDto.getCode());
+        categorie.setDesignation(categorieDto.getDesignation());
+        return categorie;
     }
 }
